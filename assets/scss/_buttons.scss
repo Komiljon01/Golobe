@@ -1,0 +1,124 @@
+@mixin btn {
+  color: #112211;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px;
+  outline: 1px solid transparent;
+}
+
+// Primary buttons style
+@mixin btn-style {
+  @include btn();
+  background: #8dd3bb;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: #9be0c8;
+  }
+
+  &:focus {
+    outline: 1px solid #8dd3bb;
+    border: 1px solid #fff;
+    background: #a5ebd3;
+  }
+
+  &:active {
+    background: #82cbb2;
+  }
+}
+
+// Outline buttons styles
+@mixin btn__outline-style {
+  @include btn();
+  background: transparent;
+  border: 1px solid #8dd3bb;
+
+  &:hover {
+    border: 1px solid #9be0c8;
+  }
+
+  &:focus {
+    border: 1px solid #8dd3bb;
+    outline: 1px solid #8dd3bb;
+  }
+
+  &:active {
+    border: 1px solid #82cbb2;
+  }
+}
+
+// Button link styles
+@mixin btn__link-style {
+  @include btn();
+  border: 1px solid transparent;
+  background-color: transparent;
+
+  &:hover {
+    color: #9be0c8;
+  }
+
+  &:focus {
+    color: #112211;
+  }
+
+  &:active {
+    color: #82cbb2;
+  }
+}
+
+// Buttons size
+@mixin btn-size($paddingY, $paddingX) {
+  padding: $paddingY $paddingX;
+}
+
+// Primary buttons
+.btn-small {
+  @include btn-style();
+  @include btn-size(8px, 10px);
+}
+
+.btn-middle {
+  @include btn-style();
+  @include btn-size(12px, 10px);
+}
+
+.btn-large {
+  @include btn-style();
+  @include btn-size(16px, 10px);
+}
+
+// Outline buttons
+.btn-outline-small {
+  @include btn__outline-style();
+  @include btn-size(8px, 10px);
+}
+
+.btn-outline-middle {
+  @include btn__outline-style();
+  @include btn-size(12px, 10px);
+}
+
+.btn-outline-large {
+  @include btn__outline-style();
+  @include btn-size(16px, 10px);
+}
+
+// Link buttons
+.btn-link-small {
+  @include btn__link-style();
+  @include btn-size(8px, 0);
+}
+
+.btn-link-middle {
+  @include btn__link-style();
+  @include btn-size(12px, 0);
+}
+
+.btn-link-large {
+  @include btn__link-style();
+  @include btn-size(16px, 0);
+}
